@@ -70,9 +70,14 @@ public class UnoderedSinglyLinkedList<E>{
      * Time complexity O(1)
      */
     Node<E> newest = new Node<E>(e);
-    newest.setNext(head);
-    head.setNext(newest);
-    size += 1;
+    if(isEmpty()){
+      tail = newest;
+    }
+    else{
+      newest.setNext(head);
+    }
+    head = newest;
+    size ++;
   }
   
   public void addLast(E e){
@@ -82,9 +87,15 @@ public class UnoderedSinglyLinkedList<E>{
      * Time complexity O(1)
      */
     Node<E> newest = new Node<E>(e);
-    tail.setNext(newest);
-    newest.setNext(null);
-    size += 1;
+    if(isEmpty()){
+      head = newest;      
+    }
+    else{
+      tail.setNext(newest);
+      newest.setNext(null);
+    }
+    tail = newest;
+    size ++;
   }
   
   public E removeFist(){
