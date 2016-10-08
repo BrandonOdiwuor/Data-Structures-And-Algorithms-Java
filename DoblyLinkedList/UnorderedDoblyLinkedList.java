@@ -1,6 +1,9 @@
 import java.util.NoSuchElementException;
 
 public class UnorderedDoblyLinkedList<E>{
+  /*
+   * Implementation of unordered dobly linked list with Sentinel Nodes
+   */
   public static class Node<E>{
     /*
      * Nested Node class that stores reference to the object to be stored 
