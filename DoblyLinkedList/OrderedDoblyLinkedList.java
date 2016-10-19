@@ -1,4 +1,4 @@
-public class OrderedLinkedList<T extends Comparable<? super T> >{
+public class OrderedDoblyLinkedList<T extends Comparable<? super T> >{
   
   public static class Node<T extends Comparable<? super T> >{
     /*
@@ -39,7 +39,7 @@ public class OrderedLinkedList<T extends Comparable<? super T> >{
   private int size;
   
   
-  public OrderedLinkedList(){
+  public OrderedDoblyLinkedList(){
     head = new Node<T>(null);
     tail = new Node<T>(null);
     head.setNext(tail);
@@ -50,6 +50,8 @@ public class OrderedLinkedList<T extends Comparable<? super T> >{
   public void insert(T newItem){
     /*
      * Insering a new item into the list while maintaining the order
+     *
+     * Time Complexity(N)
      */
     Node<T> newNode = new Node<T>(newItem);
     if(size() == 0){      
@@ -75,6 +77,8 @@ public class OrderedLinkedList<T extends Comparable<? super T> >{
   public int find(T item){
     /*
      * Returns the position of an element in the list
+     *
+     * Time Complexity(N)
      */
     int i = 0;
     int index = -1;
@@ -94,6 +98,8 @@ public class OrderedLinkedList<T extends Comparable<? super T> >{
   public T get(int index) throws IndexOutOfBoundsException{
     /*
      * Returns the element at the index position in the list
+     *
+     * Time Complexity(N)
      */
     if(index >= 0 && index < size()){
       int i = 0;
@@ -117,6 +123,8 @@ public class OrderedLinkedList<T extends Comparable<? super T> >{
   public void remove(T item){
     /*
      * Removes the item whose index is give from the list
+     *
+     * Time Complexity(N)
      */
     if(find(item) != -1){
       Node<T> currentNode = head.getNext();
@@ -136,6 +144,8 @@ public class OrderedLinkedList<T extends Comparable<? super T> >{
   public void display(){
     /*
      * Displays the content of the list
+     *
+     *nTime Complexity(N)
      */
     Node<T> currentNode = head.getNext();
     while(currentNode != tail){

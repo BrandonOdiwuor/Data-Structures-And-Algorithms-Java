@@ -1,4 +1,4 @@
-public class OrderedLinkedListTest{
+public class OrderedDoblyLinkedListTest{
   /*
    * Tester class for the OrderedLinkedList class
    */
@@ -17,9 +17,9 @@ public class OrderedLinkedListTest{
   }
   
   public static void main(String[] args){
-    OrderedLinkedListTest tester = new OrderedLinkedListTest();
+    OrderedDoblyLinkedListTest tester = new OrderedDoblyLinkedListTest();
     
-    OrderedLinkedList<String> list = new OrderedLinkedList<String>();
+    OrderedDoblyLinkedList<String> list = new OrderedDoblyLinkedList<String>();
     
     
     // Testing size()
