@@ -1,11 +1,12 @@
-public class BinaryTreeNode{
+public class BinaryTreeNode< T extends Comparable<? super T> >{
   private BinaryTreeNode parent;
   private BinaryTreeNode left;
   private BinaryTreeNode right;
+  public T key;
   
-  private BinaryTreeNode getParent(){return parent; }  
+  public BinaryTreeNode getParent(){return parent; }  
   
-  private void setParent(BinaryTreeNode p){parent = p; }
+  public void setParent(BinaryTreeNode p){parent = p; }
   
   public BinaryTreeNode getLeft(){return left;}
   
@@ -14,5 +15,9 @@ public class BinaryTreeNode{
   public BinaryTreeNode getRight(){return right;}
   
   public void setRight(BinaryTreeNode r){right = r;}
+  
+  public T getKey(){return key;}
+  
+  public void setKey(T k){key = k;}
   
 }
