@@ -2,7 +2,7 @@
  * Java implementation of Binary Search Tree(Introduction to algorithm)
  * @author Brandon Wayne Odiwuor
  */
-public class BinarySearchTree<T >{
+public class BinarySearchTree<T>{
   private Node root;
   private int size;
   
@@ -75,9 +75,34 @@ public class BinarySearchTree<T >{
     return isFound;
   }
   
-  public void transplant(Node node1, Node node2){}
+  public void transplant(Node node, Node newNode){
+    if(node.getParent() == null)
+      root = newNode;
+    else if(node == node.getParent().getLeft())
+      node.getParent().setLeft(newNode);
+    else
+      node.getParent().setRight(newNode);
+    if(newNode != null)
+      newNode.setParent(node.getParent());
+  }
   
-  public void treeDelete(Node node){}
+  public void treeDelete(Node node){
+    if(node.getLeft() == null)
+      transplant(node, (Node) node.getRight());
+    else if(node.getRight() == null)
+      transplant(node, (Node) node.getLeft());
+    else{
+      Node successor = treeSuccessor(node);
+      transplant(node, successor);
+      if(node.getRight() != successor){
+        transplant(successor, (Node) successor.getRight());
+        successor.setRight(node.getRight());
+        successor.getRight().setParent(successor);
+      }
+      successor.setLeft(node.getLeft());
+      successor.getLeft().setParent(successor);
+    }
+  }
   
   public static class Node extends BinaryTreeNode{}
 }
