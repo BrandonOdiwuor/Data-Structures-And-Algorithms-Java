@@ -1,8 +1,10 @@
-public class BinaryTreeNode< T extends Comparable<? super T> >{
+public class BinaryTreeNode{
   private BinaryTreeNode parent;
   private BinaryTreeNode left;
   private BinaryTreeNode right;
-  public T key;
+  public String key;
+  
+  public BinaryTreeNode(String _key){key = _key;}
   
   public BinaryTreeNode getParent(){return parent; }  
   
@@ -16,8 +18,8 @@ public class BinaryTreeNode< T extends Comparable<? super T> >{
   
   public void setRight(BinaryTreeNode r){right = r;}
   
-  public T getKey(){return key;}
+  public String getKey(){return key;}
   
-  public void setKey(T k){key = k;}
+  public void setKey(String k){key = k;}
   
 }
