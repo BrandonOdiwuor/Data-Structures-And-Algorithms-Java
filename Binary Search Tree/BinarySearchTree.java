@@ -182,7 +182,7 @@ public class BinarySearchTree{
       transplant(node, (Node) node.getLeft());
     else{
       Node successorNode = successor(node);
-      if(successorNode != node.getLeft()){
+      if(node != (Node) successorNode.getParent()){
         transplant(successorNode, (Node) successorNode.getRight());
         successorNode.setRight(node.getRight());
         successorNode.getRight().setParent(successorNode);
