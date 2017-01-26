@@ -2,24 +2,24 @@ public class BinaryTreeNode{
   private BinaryTreeNode parent;
   private BinaryTreeNode left;
   private BinaryTreeNode right;
-  public String key;
+  private String key;
   
   public BinaryTreeNode(String _key){key = _key;}
   
-  public BinaryTreeNode getParent(){return parent; }  
+  public String getKey(){return key;}
   
-  public void setParent(BinaryTreeNode p){parent = p; }
+  public void setKey(String _key){key = _key;}
+  
+  public BinaryTreeNode getParent(){return parent; }
+  
+  public void setParent(BinaryTreeNode _parent){parent = _parent;}
   
   public BinaryTreeNode getLeft(){return left;}
   
-  public void setLeft(BinaryTreeNode l){left = l;}
+  public void setLeft(BinaryTreeNode _left){left = _left;}
   
   public BinaryTreeNode getRight(){return right;}
   
-  public void setRight(BinaryTreeNode r){right = r;}
-  
-  public String getKey(){return key;}
-  
-  public void setKey(String k){key = k;}
+  public void setRight(BinaryTreeNode _right){right = _right;}
   
 }

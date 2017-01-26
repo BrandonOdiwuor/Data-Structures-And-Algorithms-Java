@@ -2,29 +2,47 @@ public class BinarySearchTreeTest{
   public static void main(String[] args){
     BinarySearchTree binarySearchTree = new BinarySearchTree();
     
-    // Testing treeInsert() and size() functions
-    binarySearchTree.treeInsert("Hazel");
-    binarySearchTree.treeInsert("Becker");
-    binarySearchTree.treeInsert("Brandon");   
-     testMethod(Integer.toString(binarySearchTree.size()), "3");
+    // Testing size() function
+    testMethod(Integer.toString(binarySearchTree.size()), "0");
     
-    // Testing inorderWalk() function
-    Object names[] = binarySearchTree.inorderWalk();
-    for(int i = 0; i < names.length; i++)
-      System.out.println(names[i]);
-     
-     // Testing search() function
-     testMethod(String.valueOf(binarySearchTree.treeSearch("Brandon")), "true");
-     
-     // Testing treeDelete() function
-     binarySearchTree.treeDelete("Brandon");
-     testMethod(String.valueOf(binarySearchTree.treeSearch("Brandon")), "false");
-     testMethod(Integer.toString(binarySearchTree.size()), "2");
-     
-     // Testing treeSuccessor() function
-    //testMethod(binarySearchTree.treeSuccessor("Becker"), "Brandon");
+    // Testing isEmpty() function
+    testMethod(String.valueOf(binarySearchTree.isEmpty()), "true");
+    
+    // Testing treeInsert() function
+    binarySearchTree.treeInsert("Brandon");
+    testMethod(Integer.toString(binarySearchTree.size()), "1");
+    testMethod(String.valueOf(binarySearchTree.isEmpty()), "false");
+    
+    // Testing treeSearch() function
+    testMethod(String.valueOf(binarySearchTree.treeSearch("Brandon")), "true");
+    testMethod(String.valueOf(binarySearchTree.treeSearch("Wayne")), "false");
+    
+    // Adding more elements in the tree
+    binarySearchTree.treeInsert("Brayden");
+    binarySearchTree.treeInsert("Jerdon");
+    binarySearchTree.treeInsert("Becker");
+    binarySearchTree.treeInsert("Hazel");
+    testMethod(Integer.toString(binarySearchTree.size()), "5");
+    testMethod(String.valueOf(binarySearchTree.treeSearch("Hazel")), "true");
+    
+    // Testing treeMinimum() function
+    testMethod(binarySearchTree.treeMinimum(), "Becker");
+    
+    // Testing treeMaximum() function
+    testMethod(binarySearchTree.treeMaximum(), "Jerdon");
+    
+    // Testing treeSuccessor() function
+    testMethod(binarySearchTree.treeSuccessor("Brandon"), "Brayden");
     
     // Testing treePredecessor() function
+    testMethod(binarySearchTree.treePredecessor("Jerdon"), "Hazel");
+    
+    // Testing treeDelete()
+    binarySearchTree.treeDelete("Brayden");
+    testMethod(Integer.toString(binarySearchTree.size()), "4");
+    testMethod(String.valueOf(binarySearchTree.treeSearch("Brayden")), "false");
+    testMethod(binarySearchTree.treeSuccessor("Brandon"), "Hazel");
+    
   }
   
   /* 
